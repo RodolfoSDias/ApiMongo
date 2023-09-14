@@ -18,9 +18,9 @@ public class PostService {
 	@Autowired
 	private PostRepository repo;
 	
-	public Post findById(String id) {
+	public Optional<Post> findById(String id) {
 		Optional<Post> user = repo.findById(id);
-		if (user == null) {
+		if (user.isEmpty()) {
 			throw new ObjectNotFoundException("Objeto não encontrado");
 		}
 		return user;

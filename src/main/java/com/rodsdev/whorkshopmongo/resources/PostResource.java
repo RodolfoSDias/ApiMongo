@@ -3,6 +3,7 @@ package com.rodsdev.whorkshopmongo.resources;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class PostResource {
 	private PostService service;
 
 	@GetMapping("/{id}")
- 	public ResponseEntity<Post> findById(@PathVariable String id) {
-		Post obj = service.findById(id);
+ 	public ResponseEntity<Optional<Post>> findById(@PathVariable String id) {
+		Optional<Post> obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
